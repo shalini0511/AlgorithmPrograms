@@ -24,6 +24,7 @@ namespace AlgorithmPrograms
                 Console.WriteLine("6.Anagram Problem");
                 Console.WriteLine("7.Prime number in range");
                 Console.WriteLine("8.Prime numbers with anagrams and palindrome");
+                Console.WriteLine("9.Think Number using binary search concept");
                 Console.WriteLine("Enter the option");
                 int num = Convert.ToInt32(Console.ReadLine());
                 switch (num)
@@ -38,18 +39,20 @@ namespace AlgorithmPrograms
                         string txtpath = File.ReadAllText(@"C:\Users\Radhika\source\repos\AlgorithmPrograms1\ListOfWords.txt");
                         List<string> words = new List<string>(txtpath.Split(" "));
                         words.Sort();
-                        BinarySearch.BinarySearchWord(words);
+                        BinarySearch<string> binarySearch = new BinarySearch<string>();
+                        binarySearch.BinarySearchWord(words);
                         break;
                     case 3:
-                        InsertionSort insertionSort = new InsertionSort();
+                        InsertionSort<int> insertionSort = new InsertionSort<int>();
                         int[] arr = { 10, 2, 14, 3, 1, 5, 9 };
                         insertionSort.Sort(arr);
                         insertionSort.PrintArray(arr);
                         break;
                     case 4:
                         int[] arr1 = { 10, 2, 14, 3, 1, 5, 9 };
-                        BubbleSort.BubbleSortInArray(arr1);
-                        BubbleSort.PrintArray(arr1);
+                        BubbleSort<int> bubbleSort = new BubbleSort<int>();
+                        bubbleSort.BubbleSortInArray(arr1);
+                        bubbleSort.PrintArray(arr1);
                         break;
                     case 5:
                         int[] arr2 = { 32, 12, 9, 65, 24, 5 };
@@ -90,6 +93,9 @@ namespace AlgorithmPrograms
                         {
                             Console.WriteLine("Number is not a palindrome");
                         }
+                        break;
+                    case 9:
+                        GuessNumber.ThinkNumber();
                         break;
 
                     default:
